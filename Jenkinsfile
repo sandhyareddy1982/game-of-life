@@ -5,7 +5,7 @@ stage('Checkout') {
 }
 
 stage('Build') {
-    withMaven(maven: 'Maven') {
+    withMaven {
     sh "mvn install -DskipTests"
 }
 }

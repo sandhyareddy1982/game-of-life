@@ -40,5 +40,5 @@
     get_url:
       url: http://52.25.161.119:8081/repository/Gol/Dev/Dev/{{BUILD_ID}}/Dev-{{BUILD_ID}}.war
       dest: /usr/share/tomcat/webapps/
-	    url_username: admin
-	    url_password: 1234
+      url_username: admin
+      url_password: 1234

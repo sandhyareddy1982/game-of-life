@@ -1,1 +1,2 @@
-webserver ansible_ssh_host=54.191.156.168 ansible_ssh_user=user1 ansible_ssh_pass=1234
+[webserver]
+web1 ansible_ssh_host=54.191.156.168 ansible_ssh_user=user1 ansible_ssh_pass=1234

@@ -8,7 +8,7 @@ stage('Build') {
 }
 }
 stage('Nexus Deploy') {
-    nexusArtifactUploader artifacts: [[artifactId: 'Dev', classifier: '', file: 'gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: '83585a88-bac1-4905-9e0a-c9de123162ec', groupId: 'Dev', nexusUrl: '18.237.20.129:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Gol', version: '$BUILD_ID'
+    nexusArtifactUploader artifacts: [[artifactId: 'Dev', classifier: '', file: 'gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: 'e94b66b3-d068-46b9-8543-a6c18451e4df', groupId: 'Dev', nexusUrl: '18.237.74.83:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'GameofLife', version: '$BUILD_ID'
 }
 
 }

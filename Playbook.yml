@@ -3,27 +3,18 @@
   become: true
   tasks:
   
-  - name: Install JDK
-    yum: name=java-1.8.0-openjdk state=present update_cache=yes
-      
-  - name: Install EPEL repo.
-    yum:
-      name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-      state: present
-
-  - name: Install tomcat
-    yum: name=tomcat state=present update_cache=yes
-
-
-  - name: Install tomcat webapps
-    yum: name=tomcat-webapps state=present
-
-  - name: Install tomcat admin-webapps
+  - name: Install Packages
     yum: 
-      name: tomcat-admin-webapps 
+      name: "{{item}}"
       state: present
-
-  - name: Delete tomcat-users.xml
+      update_cache: yes
+    with_items:
+      - java-1.8.0-openjdk
+      - tomcat
+      - tomcat-webapps
+      - tomcat-admin-webapps
+      
+  - name: Delete default tomcat-users.xml
     file:
       path: /etc/tomcat/tomcat-users.xml
       state: absent
@@ -38,7 +29,5 @@
 
   - name: Copy artidacts from NEXUS
     get_url:
-      url: http://52.25.161.119:8081/repository/Gol/Dev/Dev/{{BUILD_ID}}/Dev-{{BUILD_ID}}.war
-      dest: /usr/share/tomcat/webapps/
-      url_username: admin
-      url_password: 1234
+      url: http://34.209.226.14:8081/nexus/service/local/repositories/red/content/dev/dev/{{BUILD_ID}}/dev-{{BUILD_ID}}.war
+      dest: /usr/share/tomcat/webapps

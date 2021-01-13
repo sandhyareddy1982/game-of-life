@@ -29,5 +29,5 @@
 
   - name: Copy artidacts from NEXUS
     get_url:
-      url: http://34.209.226.14:8081/nexus/service/local/repositories/red/content/dev/dev/{{BUILD_ID}}/dev-{{BUILD_ID}}.war
+      url: http://54.212.39.214:8081/nexus/service/local/repositories/Gol/content/Dev/Dev/2.2/Dev-2.2.warhttp://54.212.39.214:8081/nexus/service/local/repositories/Gol/content/Dev/Dev/2.2/Dev-2.2.war
       dest: /usr/share/tomcat/webapps

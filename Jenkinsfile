@@ -1,5 +1,5 @@
 node('master') {
-    stage('Source Code Fetch') {
+    stage('Source Code CheckOut') {
     git 'https://github.com/karjunreddy85/game-of-life'
 }
 	
@@ -7,10 +7,9 @@ node('master') {
     sh 'mvn install'
 }
 	stage('Nexus Deploy') {
-    nexusArtifactUploader artifacts: [[artifactId: 'Dev', classifier: '', file: 'gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: 'e15aa808-2478-4c67-b81a-3d6ca415d3b0', groupId: 'Dev', nexusUrl: '34.221.19.115:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'Gol', version: '1.$BUILD_ID'
+    nexusArtifactUploader artifacts: [[artifactId: 'Dev', classifier: '', file: 'gameoflife-web/target/gameoflife.war', type: 'war']], credentialsId: '55f67dc4-2619-4a05-aa1a-bd465ce1d3dc', groupId: 'Dev', nexusUrl: '18.236.142.130:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'Gol', version: '$BUILD_ID'
 }
-	stage('Trigger Ansible') {
-    ansiblePlaybook inventory: 'inventory', playbook: 'Playbook.yml'
+stage('Prod Deployment') {
+    ansiblePlaybook extras: '-e BUILD_ID=$BUILD_ID', inventory: 'inventory', playbook: 'Playbook.yml'
 }
-	
 }

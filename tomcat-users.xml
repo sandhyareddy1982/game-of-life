@@ -30,6 +30,6 @@
   and thus are ignored when reading this file. Do not forget to remove
   <!.. ..> that surrounds them.
 -->
-  <role rolename="manager-gui,admin-gui,admin-script"/>
-  <user username="tomcat" password="tomcat" roles="manager-gui,admin-gui,admin-script"/>
+  <role rolename="manager-script,manager-gui,admin-gui,admin-script"/>
+  <user username="tomcat" password="tomcat" roles="manager-script,manager-gui,admin-gui,admin-script"/>
 </tomcat-users>

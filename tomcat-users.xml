@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!--
+
+		- Create manager-gui role with username & passwd
+		- cd apache-tomcat-9.0.62/conf/tomcat-users.xml
+		- Make the changes
+
   Licensed to the Apache Software Foundation (ASF) under one or more
   contributor license agreements.  See the NOTICE file distributed with
   this work for additional information regarding copyright ownership.
@@ -25,6 +30,6 @@
   and thus are ignored when reading this file. Do not forget to remove
   <!.. ..> that surrounds them.
 -->
-  <role rolename="manager-gui,admin-gui,manager-script,admin-script"/>
-  <user username="tomcat" password="tomcat" roles="manager-gui,admin-gui,manager-script,admin-script"/>
+  <role rolename="manager-gui,admin-gui,admin-script"/>
+  <user username="tomcat" password="tomcat" roles="manager-gui,admin-gui,admin-script"/>
 </tomcat-users>

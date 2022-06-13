@@ -1,2 +1,7 @@
-[webserver]
-web1 ansible_ssh_host=54.213.121.232 ansible_ssh_user=user1 ansible_ssh_pass=1234
+[webservers]
+web1-uat ansible_ssh_host=18.237.215.148
+web2-prod ansible_ssh_host=35.89.50.148
+
+[webservers:vars]
+ansible_ssh_user=user1 
+ansible_ssh_pass=1234

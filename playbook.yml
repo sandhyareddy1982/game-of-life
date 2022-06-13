@@ -17,7 +17,6 @@
       src: tomcat-users.xml
       dest: /etc/tomcat/tomcat-users.xml
 
-       
   - name: deploy artifact to tomcat
     get_url:
       url: http://44.242.166.244:8081/repository/GAMEOFLIFE/game/game/1.5/game-1.5.war

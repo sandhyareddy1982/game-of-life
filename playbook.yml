@@ -1,0 +1,26 @@
+---
+- hosts: webservers
+  become: true
+  tasks:
+  - name: Install packages
+    yum:
+      name: "{{item}}"
+      state: present
+    with_item:
+      -java-1.8.0
+      -tomcat
+      -tomcat-webapps
+      -tomcat-admin-webapps
+
+  - name: copy tomcat user file
+    copy:
+      src: tomcat-users.xml
+      dest: /etc/tomcat/tomcat-users.xml
+
+       
+  - name: deploy artifact to tomcat
+    get_url:
+      url: http://44.242.166.244:8081/repository/GAMEOFLIFE/game/game/1.5/game-1.5.war
+      url_username: admin
+      password: 1234
+      dest: /usr/share/tomcat/webapps/

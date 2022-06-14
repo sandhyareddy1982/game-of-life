@@ -1,0 +1,22 @@
+---
+- hosts:webserver
+  become: true
+  tasks:
+  
+  - name: Install packages
+    yum:
+      name: "{{item}}"
+      state: present
+    with_item:
+      - java-1.8.0
+      - tomcat-webapps
+      - tomcat-admin-webapps
+
+  - name: copy tomcat user file to tomcat server
+    copy:
+      src: tomcat-users.xml
+      dest: /etc/tomcat/tomcat-user.xml
+
+  - name: Deploy Artifacts to tomcat server
+    get_url
+

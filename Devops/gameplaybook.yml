@@ -18,5 +18,9 @@
       dest: /etc/tomcat/tomcat-user.xml
 
   - name: Deploy Artifacts to tomcat server
-    get_url
+    get_url: 
+      url: http://35.87.56.9:8081/repository/GAME/Env/Env/1.2/Env-1.2.war
+      url username: admin
+      password: 1234
+      dest: 
 

@@ -1,5 +1,5 @@
 ---
-- hosts: webservers
+- hosts: "{{host}}"
   become: true
   tasks:
   
@@ -9,6 +9,7 @@
       state: present
     with_items:
       - java-1.8.0
+      - tomcat
       - tomcat-webapps
       - tomcat-admin-webapps
 
@@ -20,11 +21,11 @@
   - name: Deploy Artifacts to tomcat server
     get_url: 
       url: http://35.87.56.9:8081/repository/GAME/Env/Env/1.2/Env-1.2.war
-      url username: admin
+      url_username: admin
       password: 1234
-      dest: /usr/share/tomcat/webapps
+      dest: /usr/share/tomcat/webapps/
   
-  - name: restart tomcat service
+  - name: restart tomcat server
     service:
       name: tomcat
       state: restarted

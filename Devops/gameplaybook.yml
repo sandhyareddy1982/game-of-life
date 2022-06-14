@@ -22,5 +22,14 @@
       url: http://35.87.56.9:8081/repository/GAME/Env/Env/1.2/Env-1.2.war
       url username: admin
       password: 1234
-      dest: 
+      dest: /usr/share/tomcat/webapps
+  
+  - name: restart tomcat service
+    service:
+      name: tomcat
+      state: restarted
+      
+      
+      
+      
 

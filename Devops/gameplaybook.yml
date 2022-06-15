@@ -18,11 +18,7 @@
       src: tomcat-users.xml
       dest: /etc/tomcat/tomcat-users.xml
       
-  - name: Delete old version
-    file:
-      path: /usr/share/tomcat/webapps/Env
-      state: absent
-            
+           
   - name: Deploy Artifacts to tomcat server
     get_url: 
       url: http://100.20.122.10:8081/repository/GAME/Env/Env/1.1/Env-1.1.war

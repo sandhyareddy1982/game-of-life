@@ -20,7 +20,7 @@
 
   - name: Deploy Artifacts to tomcat server
     get_url: 
-      url: http://
+      url: http://100.20.122.10:8081/repository/GAME/Env/Env/1.1/Env-1.1.war
       url_username: admin
       password: 1234
       dest: /usr/share/tomcat/webapps/

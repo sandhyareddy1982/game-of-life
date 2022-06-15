@@ -16,11 +16,11 @@
   - name: copy tomcat user file to tomcat server
     copy:
       src: tomcat-users.xml
-      dest: /etc/tomcat/tomcat-user.xml
+      dest: /etc/tomcat/tomcat-users.xml
 
   - name: Deploy Artifacts to tomcat server
     get_url: 
-      url: http://35.87.56.9:8081/repository/GAME/Env/Env/1.2/Env-1.2.war
+      url: http://
       url_username: admin
       password: 1234
       dest: /usr/share/tomcat/webapps/

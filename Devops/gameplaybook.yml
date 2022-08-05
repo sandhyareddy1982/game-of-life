@@ -21,7 +21,7 @@
            
   - name: Deploy Artifacts to tomcat server
     get_url: 
-      url: http://44.235.74.175:8081/repository/REPO/dev/dev/1.2/dev-1.2.war
+      url: http://35.87.92.155:8081/repository/newgame/dev/dev/1.1/dev-1.1.war
       url_username: admin
       password: 1234
       dest: /usr/share/tomcat/webapps/
